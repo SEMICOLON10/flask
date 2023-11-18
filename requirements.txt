@@ -1,8 +1,8 @@
 Flask
-pysqlite3==3.7.2
-sqlite==3.73.2
-Jinja2==2.11.3
-Werkzeug==0.15.5
-WTForms==2.2.1
-requests==2.22.0
+sqlite3
+sqlite
+Jinja2
+Werkzeug
+WTForms
+requests
 Gunicorn
