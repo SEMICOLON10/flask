@@ -1,5 +1,5 @@
 Flask==2.2.5
-sqlite3
+db-sqlite3
 Jinja2
 Werkzeug
 WTForms
