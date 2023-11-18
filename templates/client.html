@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-ezVFD3Rv/iKz8e78sd5ZjyP4scs46b8bOSJqFqKpZJi7Y1xV8CpxtH6D3eZ+VZz" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>الصفحة الرئيسية</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='css/all.css') }}>
+    <link rel="icon" href="{{ url_for('static', filename='img.png') }}" type="image/x-icon">
+     <link rel="shortcut icon" href="{{ url_for('static', filename='img.png') }}" type="image/x-icon">
+    
+    <link rel="stylesheet" href={{ url_for('static', filename='css/style.css') }}>
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        button {
+            padding: 19px;
+            border: none;
+            margin-left: -900px;
+            font-size: 30px;
+            background-color: #9f79db;
+            color: #fff;
+            cursor: pointer;
+            margin l
+            transition: transform 0.3s ease; /* تأثير الانتقال */
+        }
+    
+        button:hover {
+            transform: scale(1.1); /* تكبير الزر عند التحويل إليه بالماوس */
+        }
+    
+        
+        i {
+            margin-right: 5px; /* تعديل المسافة بين النص والأيقونة */
+        }
+    </style>
+  
+    
+</head>
+
+<body>
+    <div class="parent">
+
+        <input type="checkbox" id="check">
+        <label for="check" class="ch">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+        </label>
+
+
+        <div class="sidebar">
+            <div class="info">
+                <img src={{ url_for('static', filename="image/images.png") }} alt="" class="image">
+                <h3>{{name}}</h3>
+                
+                
+                <h3>{{s}}</h3>
+                
+            </div>
+
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="fab fa-google-drive "></i>ملفاتي</a>
+                </li>
+                <li>
+                    <a href="/Cooming_Soon">
+                        <i class="far fa-comment-alt"></i>الرسائل
+                    </a>
+                </li>
+                
+
+                <li>
+                    <a href="/Cooming_Soon">
+                        <i class="far fa-newspaper"></i>اخر التحديثات
+                    </a>
+
+                </li>
+               
+                  
+                <li>
+                                        
+                
+                                        
+                    <a href="{{data_link}}" target="_blank">
+
+                       
+                        <center>  <i class="fab fa-google-drive fa-3x" style="border-radius: 50%; background-color: #FFA500; color: white; padding: 10px;"></i></center>
+
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                <ul class="flash">
+                                    {% for message in messages %}
+                                        <li><h1>{{ message }}</h1></li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        {% endwith %}
+                    </a>
+                </li>
+
+                <li> 
+
+                                                            <!-- في ملف الـ HTML -->
+                                    <!-- في ملف الـ HTML -->
+                    <a href="{{ url_for('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+                    </a>
+  
+                </li>  
+                
+                
+
+            </ul>
+
+        </div>
+
+        <div class="sec">
+            <section>
+                <div class="logo">
+                    <h3>احمد عباس وفا وشركاه</h3>
+                    <p>للمحاسبة والمرجعة</p>
+                    <p>والاستشارات الضريبية</p>
+                    <button onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i> العودة
+                    </button>
+                    
+                </div>
+            </section>
+
+            
+            <div class="sec2">
+                <div class="sms2">
+
+                    <div class="img_info2">
+                        <img src={{ url_for('static', filename="image/images.png") }} alt="" class="img_sms2">
+                    </div>
+                   
+                    <div class="text_info2">
+                        <h4>حسن ابراهيم</h4>
+                        <span>admin</span>
+                    </div>
+                    <div>
+                        
+                            <div class="text2">
+                                <textarea name='data' autofocus style="text-align:right" disabled>{{value}}</textarea>
+                                
+                            </div>
+                            
+                            
+                           
+                    </div>    
+
+                </div>
+            </div>
+
+
+            <br><br><br><br><br>
+            
+          
+
+            <footer>
+                <div class="footer_right">
+                    <a href="#">
+                        <i class="fab fa-facebook "></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-whatsapp "></i>
+                    </a>
+                </div>
+                <div class="footer_left">
+                    <h2 class="copyrigt">By front-end developer</h2>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetchData();
+        });
+    
+        function fetchData() {
+            fetch('/page_home', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => response.json())
+            .then(data => {
+                // قم بتنفيذ العمليات المطلوبة على البيانات هنا
+                console.log(data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+        
+        setTimeout(function() {
+            var flashMessages = document.querySelector('.flash');
+            if (flashMessages) {
+              flashMessages.style.display = 'none';
+            }
+          }, 5000); // 5000 // 5000 milliseconds = 5 seconds
+          
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+
+</html>

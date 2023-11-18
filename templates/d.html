@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الصفحة الرئيسية</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='css/all.css') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename='css/style.css') }}>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="parent">
+
+        <input type="checkbox" id="check">
+        <label for="check" class="ch">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+        </label>
+
+
+        <div class="sidebar">
+            <div class="info">
+                <img src={{ url_for('static', filename="image/images.png") }} alt="" class="image">
+                <h3>{{name}}</h3>
+                <h3>{{s}}</h3>
+                
+            </div>
+
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="fab fa-google-drive "></i>ملفاتي</a>
+                </li>
+                <li>
+                    <a href="/Cooming_Soon">
+                        <i class="far fa-comment-alt"></i>الرسائل
+                    </a>
+                </li>
+                <li>
+                    <a href="/edit">
+                        <i class="fas fa-user-plus"></i>اضافة/ حذف عميل
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/Cooming_Soon">
+                        <i class="fas fa-user-cog"></i>بيانات العملاء
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Cooming_Soon">
+                        <i class="far fa-newspaper"></i>اخر التحديثات
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="sec">
+            <section>
+                <div class="logo">
+                    <h3>احمد عباس وفا وشركاه</h3>
+                    <p>للمحاسبة والمرجعة</p>
+                    <p>والاستشارات الضريبية</p>
+                </div>
+            </section>
+
+            
+            <div class="sec2">
+                <div class="sms2">
+
+                    <div class="img_info2">
+                        <img src={{ url_for('static', filename="image/images.png") }} alt="" class="img_sms2">
+                    </div>
+                   
+                    <div class="text_info2">
+                        <h4>حسن ابراهيم</h4>
+                        <span>admin</span>
+                    </div>
+                    <div>
+                        <form  action= "{{url_for('read')}}" method='POST'>
+                            <div class="text2">
+                                <textarea name='data' autofocus style="text-align:right" disabled>{{value}}</textarea>
+                                
+                            </div>
+                            <div class="img_info2">
+                                <img src={{ url_for('static', filename="image/images.png") }} alt="" class="img_sms2">
+                            </div>
+                            <div class="text_info2">
+                                <h4>حسن ابراهيم</h4>
+                                <span>Client</span>
+                                <br><br>
+                            </div>
+                            <div>
+                            
+                                <select id="mySelect" class="inp " name='list'>
+                                    {% for item in data %}
+                                        <option>{{ item }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="btns">
+                            
+                                <input type="submit" class="btn1" value=" عرض ">
+                            
+                            </div>
+                        </form>    
+                    </div>    
+
+                </div>
+            </div>
+
+
+
+                    <br><br><br><br><br>  
+                    <div class="text_info2">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                <ul class="flashes">
+                                {% for message in messages %}
+                                    <li>{{ message }}</li>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+                        {% endwith %}
+                        
+                    </div>
+
+                </div>
+            </div>
+            <br><br><br><br><br>
+            
+          
+
+            <footer>
+                <div class="footer_right">
+                    <a href="#">
+                        <i class="fab fa-facebook "></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-whatsapp "></i>
+                    </a>
+                </div>
+                <div class="footer_left">
+                    <h2 class="copyrigt">By front-end developer</h2>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        setTimeout(function() {
+          var flashMessages = document.querySelector('.flashes');
+          if (flashMessages) {
+            flashMessages.style.display = 'none';
+          }
+        }, 5000); // 5000 milliseconds = 5 seconds
+      </script>
+
+
+
+
+
+
+    <script src={{ url_for('static', filename="js/script.js") }}></script>
+</body>
+
+</html>

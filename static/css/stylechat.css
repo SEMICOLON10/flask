@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@500&family=Lobster&family=Roboto:wght@100;300;400;500;700&display=swap');
+body {
+    direction: rtl;
+    font-family: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.parent {
+    overflow: auto;
+}
+
+.sidebar {
+    position: fixed;
+    width: 330px;
+    height: 100%;
+    background: #9f79db;
+    transition: all .5s ease;
+    float: right;
+}
+
+.sidebar .info {
+    user-select: none;
+    text-align: center;
+}
+
+.sidebar .info .image {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin-top: 30px;
+}
+
+.sidebar .info h3 {
+    margin-top: 5px;
+    color: white;
+    font-size: 25px;
+    line-height: 40px;
+}
+
+.sidebar .info p {
+    color: white;
+    margin: 2px;
+    margin-bottom: 10px;
+}
+
+.sidebar ul a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: white;
+    padding-right: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px solid black;
+    transition: .4s;
+}
+
+ul li:hover a {
+    padding-right: 50px;
+}
+
+.sidebar ul a i {
+    margin-left: 16px;
+}
+
+#check,
+label {
+    display: none;
+}
+
+.sce {
+    float: left;
+}
+
+section {
+    background-size: cover;
+    overflow: auto;
+}
+
+section .logo {
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 30px;
+    font-size: 30px;
+    float: left;
+}
+
+section .name a {
+    float: right;
+    margin-right: 370px;
+    margin-bottom: 30px;
+    margin-top: 70px;
+    font-size: 50px;
+    color: black;
+    font-weight: bold;
+}
+
+.msm {
+    float: right;
+    border: #9f79db 1px solid;
+    width: 900px;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    margin-right: 380px;
+}
+
+.head {
+    margin-right: 30px;
+    margin-top: 10px;
+}
+
+.imgsm {
+    width: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: #9f79db 1px solid;
+}
+
+.txtm {
+    margin-right: 95px;
+    margin-top: -49px;
+    margin-bottom: 30px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.text input {
+    width: 400px;
+    height: 100px;
+    padding-right: 10px;
+    margin-top: 40px;
+    margin-right: 10px;
+    border: #9f79db 2px solid;
+    margin-bottom: 20px;
+    border-radius: 20px 20px 0 20px;
+    font-size: 25px;
+}
+
+.text .icon {
+    margin-right: -15px;
+    /* display: block; */
+    /* z-index: 10; */
+}
+
+.sec2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.text2 input {
+    width: 400px;
+    height: 160px;
+    padding-left: 10px;
+    margin-top: 4px;
+    margin-right: 470px;
+    border: #9f79db 2px solid;
+    margin-bottom: 20px;
+    border-radius: 20px 20px 20px 0px;
+    font-size: 25px;
+}
+
+.send {
+    margin-right: 110px;
+    margin-bottom: 20px;
+}
+
+.send .ic1 {
+    width: 50px;
+    height: 50px;
+    background-color: #9f79db;
+    color: #fff;
+    border-radius: 50%;
+    border: 1px solid #9f79db;
+    line-height: 50px;
+    text-align: center;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.send input {
+    width: 500px;
+    height: 50px;
+    padding-right: 10px;
+    color: black;
+    font-size: 22px;
+    border: 1.5px solid #9f79db;
+    border-radius: 15px;
+}
+
+.send .ic2 {
+    width: 50px;
+    height: 50px;
+    background-color: #9f79db;
+    color: #fff;
+    border-radius: 50%;
+    border: 1px solid #9f79db;
+    line-height: 50px;
+    text-align: center;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+footer {
+    height: 50%;
+    background-color: #9f79db;
+    margin-top: 60px;
+    margin-right: 330px;
+    overflow: auto;
+}
+
+footer .footer_right {
+    margin-right: 25px;
+    float: right;
+}
+
+footer .footer_right a {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    padding-right: 15px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+}
+
+footer .footer_left {
+    margin-left: 25px;
+    float: left;
+}
+
+footer .footer_left .copyrigt {
+    color: white;
+    line-height: 50px;
+}
+
+
+/* ////////////////////////////////////////////////// */
+
+@media (max-width:768px) {
+    .sidebar {
+        right: -330px;
+        transition: all .5s ease;
+        z-index: 9;
+    }
+    #check,
+    label {
+        display: none;
+    }
+    label {
+        display: inline-block;
+    }
+    label #btn,
+    label #cancel {
+        position: absolute;
+        cursor: pointer;
+        background: white;
+        border-radius: 2px;
+    }
+    label #btn {
+        right: 40px;
+        top: 25px;
+        font-size: 35px;
+        color: #9f79db;
+        padding: 6px 12px;
+        transition: all .5s;
+    }
+    label #cancel {
+        z-index: 1111;
+        right: -260px;
+        top: 39px;
+        font-size: 30px;
+        color: #9f79db;
+        padding: 4px 9px;
+        transition: all .5s ease;
+    }
+    #check:checked~.sidebar {
+        right: 0;
+    }
+    #check:checked~label #btn {
+        right: 250px;
+        opacity: 0;
+        pointer-events: none;
+    }
+    #check:checked~label #cancel {
+        right: 250px;
+    }
+    section {
+        background-position: left;
+        background-size: cover;
+        overflow: auto;
+    }
+    section .logo {
+        text-align: left;
+        padding-left: 20px;
+        padding-top: 5px;
+        font-size: 25px;
+        float: left;
+    }
+    section .name a {
+        margin-right: 70px;
+        margin-top: 65px;
+        font-size: 30px;
+        color: black;
+        font-weight: bold;
+        float: right;
+    }
+    .msm {
+        float: right;
+        border: #9f79db 1px solid;
+        width: 450px;
+        height: auto;
+        margin-top: 10px;
+        border-radius: 10px;
+        margin-right: 30px;
+    }
+    .head {
+        margin-right: 30px;
+        margin-top: 10px;
+    }
+    .text input {
+        width: 400px;
+        height: 100px;
+        padding-right: 10px;
+        margin-top: 40px;
+        margin-right: 10px;
+        border: #9f79db 2px solid;
+        margin-bottom: 20px;
+        border-radius: 20px 20px 0 20px;
+        font-size: 25px;
+    }
+    .text .icon {
+        margin-right: -15px;
+        /* display: block; */
+        /* z-index: 10; */
+    }
+    .sec2 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .text2 input {
+        width: 400px;
+        height: 160px;
+        padding-left: 10px;
+        margin-top: 4px;
+        margin-right: 30px;
+        border: #9f79db 2px solid;
+        margin-bottom: 20px;
+        border-radius: 20px 20px 20px 0px;
+        font-size: 25px;
+    }
+    .send {
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+    .send .ic1 {
+        width: 50px;
+        height: 50px;
+        background-color: #9f79db;
+        color: #fff;
+        border-radius: 50%;
+        border: 1px solid #9f79db;
+        line-height: 50px;
+        text-align: center;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    .send input {
+        width: 280px;
+        height: 50px;
+        padding-right: 10px;
+        color: black;
+        font-size: 22px;
+        border: 1.5px solid #9f79db;
+        border-radius: 15px;
+    }
+    .send .ic2 {
+        width: 50px;
+        height: 50px;
+        background-color: #9f79db;
+        color: #fff;
+        border-radius: 50%;
+        border: 1px solid #9f79db;
+        line-height: 50px;
+        text-align: center;
+        margin-right: 9px;
+        cursor: pointer;
+    }
+    footer {
+        height: 50%;
+        background-color: #9f79db;
+        text-align: end;
+        margin-top: 26px;
+        margin-right: -1px;
+        overflow: auto;
+    }
+    footer .footer_right {
+        margin-right: 25px;
+        float: right;
+    }
+    footer .footer_right a {
+        text-align: center;
+        font-size: 30px;
+        color: white;
+        padding-right: 15px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 50%;
+    }
+    footer .footer_left {
+        float: left;
+    }
+    footer .footer_left .copyrigt {
+        color: white;
+        line-height: 50px;
+    }
+}

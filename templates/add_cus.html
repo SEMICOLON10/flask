@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='img.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img.png') }}" type="image/x-icon">
+    <title>اضافة عميل</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='css/all.css') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename="css/styleadd.css") }}>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="parent">
+        <input type="checkbox" id="check">
+        <label for="check" class="ch">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+        </label>
+
+
+        <div class="sidebar">
+            <div class="info">
+                <img src={{ url_for('static', filename="image/images.png") }} alt="" class="image">
+                <h3>{{name}}</h3>
+                <h3>{{s}}</h3>
+            </div>
+
+            <ul>
+                <li>
+                    <a href="/home">
+                        <i class="fab fa-google-drive "></i>ملفاتي</a>
+                </li>
+                <li>
+                    <a href="/Cooming_Soon">
+                        <i class="far fa-comment-alt"></i>الرسائل
+                    </a>
+                </li>
+                <li>
+                    <a href="/add">
+                        <i class="fas fa-user-plus"></i>اضافة عميل
+                    </a>
+
+                </li>
+                
+
+                <li>
+                    <a href="/Cooming_Soon">
+                        <i class="far fa-newspaper"></i>اخر التحديثات
+                    </a>
+                </li>
+                
+                <li> 
+
+                                    <!-- في ملف الـ HTML -->
+                    <!-- في ملف الـ HTML -->
+                    <a href="{{ url_for('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+                    </a>
+
+                </li>  
+            </ul>
+
+        </div class="txt1">
+        <div><h3></h3></div>
+
+        <div class="sec">
+            <section>
+
+                <div class="logo">
+                    <h3>احمد عباس وفا وشركاه</h3>
+                    <p>للمحاسبة والمرجعة</p>
+                    <p>والاستشارات الضريبية</p>
+                </div>
+                <div class="add">
+                    <div class="load_img">
+                        <a href="#" class="img"><img src={{ url_for('static', filename="image/images.png") }} alt=""></a>
+                        <a href="#" class="txt_load">تحميل الصورة</a>
+                    </div>
+                </div>
+                <div class="name">
+                    <a href="add_cus.html">
+                        <i class="fas fa-user-plus"></i>اضافة عميل
+                    </a>
+                </div>
+            </section>
+
+            
+
+                <form method="POST" action="{{ url_for('edit')}}">
+                    <div class="add_txt">
+                        <label for="" class="lab n1">الاسم بالكامل  </label>
+                        <input type="text" name="name1" id="yourInputId" class="inp" focus required>
+                        </label>
+                    </div>
+                    <div>
+                        <label for="" class="lab"> نوع المستخدم </label>
+                        <select name="statues" class="inp "id="" required>
+                            <option selected>Select user</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Client">Client</option>
+                        </select>
+                    </div>
+
+                    <div class="txt1">
+                        <div class="add_txt">
+                            <label for="" class="lab">عنوان الدرايف</label>
+                            <input type="link" name="drive" id="" class="inp">
+                        </div>
+                    </div>
+                    <div class="txt1">
+                        <div class="add_txt">
+                            <label for="" class="lab"> البريد الالكترني                   </label>
+                            <input type="email" name="email" id="" class="inp">
+
+                        </div>
+                    </div>
+                    <div class="txt1">
+                        <div class="add_txt">
+                            <label for="" class="lab">الرقم السري   </label>
+                            <input type="Password" name="password" id="" class="inp" required>
+
+                        </div>
+                    </div>
+                    <div class="btns">
+                
+                        <input type="submit" class="btn1" value=" اضافة">
+                        
+                        
+                    </div>
+                    <div class="txt1">
+                        <div class="add_txt" style="text-align: left">
+                            <label for="" class="lab" style="padding-left: 50%;">
+                                
+                                {% with messages = get_flashed_messages() %}
+                                    {% if messages %}
+                                        <ul class="flash">
+                                        {% for message in messages %}
+                                            <li><h1>{{ message }}</h1></li>
+                                        {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                {% endwith %}
+                            
+                            </label>
+
+                            
+
+                        </div>
+                    
+                    
+                    </div>    
+                    
+                    
+                   
+
+                </form>
+            
+            
+               
+
+            </div>
+
+
+
+        </div>
+       
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    </div>
+    <footer>
+        <div class="footer_right">
+            <a href="#">
+                <i class="fab fa-facebook "></i>
+            </a>
+            <a href="#">
+                <i class="fab fa-whatsapp "></i>
+            </a>
+        </div>
+        <div class="footer_left">
+            <h2 class="copyrigt">By front-end developer</h2>
+        </div>
+    </footer>
+    <script>
+        // الدالة تقوم بإخفاء العناصر التي تحمل الفلاش بعد 5 ثوانٍ
+        setTimeout(function() {
+            var flashMessages = document.querySelector('.flash');
+            if (flashMessages) {
+                flashMessages.style.display = 'none';
+                window.location.href = "/add";  // تحديث الصفحة إلى "/add"
+            }
+        }, 5000);
+    
+        // الدالة تقوم بتحديد الحقل الذي يحمل الإدخال بعد تحميل الصفحة
+        window.onload = function() {
+            document.getElementById('yourInputId').focus();
+        };
+    </script>
+    
+    
+    
+
+    
+</body>
+
+</html>
